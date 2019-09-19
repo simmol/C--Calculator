@@ -37,8 +37,12 @@ namespace Calculator
 
     class Program
     {
-        static double GetValidNumber(string numInput1)
+        static double GetValidNumber()
         {
+            // Ask the user to type the first number.
+            Console.Write("Type a number, and then press Enter: ");
+            string numInput1 = Console.ReadLine();
+
             double cleanNum1 = 0;
             while (!double.TryParse(numInput1, out cleanNum1))
             {
@@ -58,26 +62,12 @@ namespace Calculator
             while (!endApp)
             {
                 // Declare variables and set to empty.
-                string numInput1 = "";
-                string numInput2 = "";
                 double result = 0;
 
-                // Ask the user to type the first number.
-                Console.Write("Type a number, and then press Enter: ");
-                numInput1 = Console.ReadLine();
-
-                double cleanNum1 = GetValidNumber(numInput1);
-
-                // Ask the user to type the second number.
-                Console.Write("Type another number, and then press Enter: ");
-                numInput2 = Console.ReadLine();
-
-                double cleanNum2 = 0;
-                while (!double.TryParse(numInput2, out cleanNum2))
-                {
-                    Console.Write("This is not valid input. Please enter an integer value: ");
-                    numInput2 = Console.ReadLine();
-                }
+                // Ask the user to type the numbers.
+                double cleanNum1 = GetValidNumber();              
+                double cleanNum2 = GetValidNumber();
+                
 
                 // Ask the user to choose an operator.
                 Console.WriteLine("Choose an operator from the following list:");
